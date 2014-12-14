@@ -1,15 +1,15 @@
-DropResize
+Dropi
 ==========
 
-DropReize — a tool for resizeing image file for OS X.
+Dropi — a tool for resizeing image file for OS X.
 
 Requirements
 ===
-**DropReize** requires OS X 10.10 or greater.
+**Dropi** requires OS X 10.10 or greater.
 
 Installation
 ===
-To install the latest version of DropReize, you can download [here](https://github.com/m-nakada/DropResize/releases).
+To install the latest version of Dropi, you can download [here](https://github.com/m-nakada/Dropi/releases).
 
 Usage
 ===
@@ -25,4 +25,4 @@ Long press the app icon.
 
 License
 ===
-[MIT](https://github.com/m-nakada/DropResize/blob/master/LICENSE)
+[MIT](https://github.com/m-nakada/Dropi/blob/master/LICENSE)
