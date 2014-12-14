@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  DropResize
+//  Dropi
 //
-//  Created by mitsuru on 12/13/14.
+//  Created by m-nakada on 12/13/14.
 //  Copyright (c) 2014 mna. All rights reserved.
 //
 
@@ -21,13 +21,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   func applicationDidFinishLaunching(aNotification: NSNotification) {
     // Insert code here to initialize your application
     let defaults: NSDictionary = [Constants.UserDefaultsKey.SelectedScaleMenuTitle:"50%",
-                                  Constants.UserDefaultsKey.Overwrite:(true)]
+                                  Constants.UserDefaultsKey.Overwrite:(false)]
     NSUserDefaults.standardUserDefaults().registerDefaults(defaults)
   }
   
   // When user drop a file to App icon, this method is called.
   func application(theApplication: NSApplication, openFile filename: String) -> Bool {
-//    println("openFile, filename \(filename)")
     self.resize(filename)
     return true
   }
