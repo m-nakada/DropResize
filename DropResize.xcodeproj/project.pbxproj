@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E66BC9D1A3BA0FD003BFF80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66BC9C1A3BA0FD003BFF80 /* AppDelegate.swift */; };
+		2E66BC9F1A3BA0FD003BFF80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E66BC9E1A3BA0FD003BFF80 /* Images.xcassets */; };
+		2E66BCA21A3BA0FE003BFF80 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E66BCA01A3BA0FE003BFF80 /* MainMenu.xib */; };
+		2E66BCAE1A3BA0FE003BFF80 /* ImageResizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66BCAD1A3BA0FE003BFF80 /* ImageResizerTests.swift */; };
+		2E66BCB81A3BA352003BFF80 /* ImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66BCB71A3BA352003BFF80 /* ImageResizer.swift */; };
+		2ED9D7A51A3D04410003A793 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED9D7A41A3D04410003A793 /* Constants.swift */; };
+		2ED9D7A61A3D04410003A793 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED9D7A41A3D04410003A793 /* Constants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2E66BCA81A3BA0FE003BFF80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E66BC8F1A3BA0FC003BFF80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E66BC961A3BA0FC003BFF80;
+			remoteInfo = ResizeImage;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2E66BC971A3BA0FD003BFF80 /* DropResize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropResize.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E66BC9B1A3BA0FD003BFF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E66BC9C1A3BA0FD003BFF80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2E66BC9E1A3BA0FD003BFF80 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2E66BCA11A3BA0FE003BFF80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2E66BCA71A3BA0FE003BFF80 /* DropResizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropResizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E66BCAC1A3BA0FE003BFF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E66BCAD1A3BA0FE003BFF80 /* ImageResizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResizerTests.swift; sourceTree = "<group>"; };
+		2E66BCB71A3BA352003BFF80 /* ImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
+		2ED9D7A41A3D04410003A793 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2E66BC941A3BA0FC003BFF80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E66BCA41A3BA0FE003BFF80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E66BC8E1A3BA0FC003BFF80 = {
+			isa = PBXGroup;
+			children = (
+				2E66BC991A3BA0FD003BFF80 /* DropResize */,
+				2E66BCAA1A3BA0FE003BFF80 /* DropResizeTests */,
+				2E66BC981A3BA0FD003BFF80 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2E66BC981A3BA0FD003BFF80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E66BC971A3BA0FD003BFF80 /* DropResize.app */,
+				2E66BCA71A3BA0FE003BFF80 /* DropResizeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E66BC991A3BA0FD003BFF80 /* DropResize */ = {
+			isa = PBXGroup;
+			children = (
+				2E66BC9C1A3BA0FD003BFF80 /* AppDelegate.swift */,
+				2ED9D7A41A3D04410003A793 /* Constants.swift */,
+				2E66BCB71A3BA352003BFF80 /* ImageResizer.swift */,
+				2E66BC9E1A3BA0FD003BFF80 /* Images.xcassets */,
+				2E66BCA01A3BA0FE003BFF80 /* MainMenu.xib */,
+				2E66BC9A1A3BA0FD003BFF80 /* Supporting Files */,
+			);
+			path = DropResize;
+			sourceTree = "<group>";
+		};
+		2E66BC9A1A3BA0FD003BFF80 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2E66BC9B1A3BA0FD003BFF80 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2E66BCAA1A3BA0FE003BFF80 /* DropResizeTests */ = {
+			isa = PBXGroup;
+			children = (
+				2E66BCAD1A3BA0FE003BFF80 /* ImageResizerTests.swift */,
+				2E66BCAB1A3BA0FE003BFF80 /* Supporting Files */,
+			);
+			path = DropResizeTests;
+			sourceTree = "<group>";
+		};
+		2E66BCAB1A3BA0FE003BFF80 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2E66BCAC1A3BA0FE003BFF80 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2E66BC961A3BA0FC003BFF80 /* DropResize */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E66BCB11A3BA0FE003BFF80 /* Build configuration list for PBXNativeTarget "DropResize" */;
+			buildPhases = (
+				2E66BC931A3BA0FC003BFF80 /* Sources */,
+				2E66BC941A3BA0FC003BFF80 /* Frameworks */,
+				2E66BC951A3BA0FC003BFF80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DropResize;
+			productName = ResizeImage;
+			productReference = 2E66BC971A3BA0FD003BFF80 /* DropResize.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2E66BCA61A3BA0FE003BFF80 /* DropResizeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E66BCB41A3BA0FE003BFF80 /* Build configuration list for PBXNativeTarget "DropResizeTests" */;
+			buildPhases = (
+				2E66BCA31A3BA0FE003BFF80 /* Sources */,
+				2E66BCA41A3BA0FE003BFF80 /* Frameworks */,
+				2E66BCA51A3BA0FE003BFF80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E66BCA91A3BA0FE003BFF80 /* PBXTargetDependency */,
+			);
+			name = DropResizeTests;
+			productName = ResizeImageTests;
+			productReference = 2E66BCA71A3BA0FE003BFF80 /* DropResizeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2E66BC8F1A3BA0FC003BFF80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = mna;
+				TargetAttributes = {
+					2E66BC961A3BA0FC003BFF80 = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 9VHA7WMYMU;
+					};
+					2E66BCA61A3BA0FE003BFF80 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 2E66BC961A3BA0FC003BFF80;
+					};
+				};
+			};
+			buildConfigurationList = 2E66BC921A3BA0FC003BFF80 /* Build configuration list for PBXProject "DropResize" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2E66BC8E1A3BA0FC003BFF80;
+			productRefGroup = 2E66BC981A3BA0FD003BFF80 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2E66BC961A3BA0FC003BFF80 /* DropResize */,
+				2E66BCA61A3BA0FE003BFF80 /* DropResizeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E66BC951A3BA0FC003BFF80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E66BC9F1A3BA0FD003BFF80 /* Images.xcassets in Resources */,
+				2E66BCA21A3BA0FE003BFF80 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E66BCA51A3BA0FE003BFF80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2E66BC931A3BA0FC003BFF80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E66BC9D1A3BA0FD003BFF80 /* AppDelegate.swift in Sources */,
+				2E66BCB81A3BA352003BFF80 /* ImageResizer.swift in Sources */,
+				2ED9D7A51A3D04410003A793 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E66BCA31A3BA0FE003BFF80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E66BCAE1A3BA0FE003BFF80 /* ImageResizerTests.swift in Sources */,
+				2ED9D7A61A3D04410003A793 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2E66BCA91A3BA0FE003BFF80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E66BC961A3BA0FC003BFF80 /* DropResize */;
+			targetProxy = 2E66BCA81A3BA0FE003BFF80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2E66BCA01A3BA0FE003BFF80 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E66BCA11A3BA0FE003BFF80 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2E66BCAF1A3BA0FE003BFF80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2E66BCB01A3BA0FE003BFF80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2E66BCB21A3BA0FE003BFF80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DropResize/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = DropResize;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		2E66BCB31A3BA0FE003BFF80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = DropResize/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = DropResize;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		2E66BCB51A3BA0FE003BFF80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DropResizeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = DropResizeTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DropResize.app/Contents/MacOS/DropResize";
+			};
+			name = Debug;
+		};
+		2E66BCB61A3BA0FE003BFF80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DropResizeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = DropResizeTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DropResize.app/Contents/MacOS/DropResize";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E66BC921A3BA0FC003BFF80 /* Build configuration list for PBXProject "DropResize" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E66BCAF1A3BA0FE003BFF80 /* Debug */,
+				2E66BCB01A3BA0FE003BFF80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E66BCB11A3BA0FE003BFF80 /* Build configuration list for PBXNativeTarget "DropResize" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E66BCB21A3BA0FE003BFF80 /* Debug */,
+				2E66BCB31A3BA0FE003BFF80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E66BCB41A3BA0FE003BFF80 /* Build configuration list for PBXNativeTarget "DropResizeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E66BCB51A3BA0FE003BFF80 /* Debug */,
+				2E66BCB61A3BA0FE003BFF80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2E66BC8F1A3BA0FC003BFF80 /* Project object */;
+}
