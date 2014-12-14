@@ -9,7 +9,7 @@ Requirements
 
 Installation
 ===
-[Download](https://github.com/m-nakada/DropResize/releases).
+To install the latest stable version of DropReize, you can download [here](https://github.com/m-nakada/DropResize/releases).
 
 Usage
 ===
