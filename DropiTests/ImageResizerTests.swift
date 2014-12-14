@@ -2,7 +2,7 @@
 //  ImageResizerTests.swift
 //  ImageResizerTests
 //
-//  Created by mitsuru on 12/13/14.
+//  Created by m-nakada on 12/13/14.
 //  Copyright (c) 2014 mna. All rights reserved.
 //
 

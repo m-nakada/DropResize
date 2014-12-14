@@ -27,12 +27,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2E66BC971A3BA0FD003BFF80 /* DropResize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropResize.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E66BC971A3BA0FD003BFF80 /* Dropi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dropi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E66BC9B1A3BA0FD003BFF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E66BC9C1A3BA0FD003BFF80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E66BC9E1A3BA0FD003BFF80 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2E66BCA11A3BA0FE003BFF80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		2E66BCA71A3BA0FE003BFF80 /* DropResizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropResizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E66BCA71A3BA0FE003BFF80 /* DropiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E66BCAC1A3BA0FE003BFF80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E66BCAD1A3BA0FE003BFF80 /* ImageResizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResizerTests.swift; sourceTree = "<group>"; };
 		2E66BCB71A3BA352003BFF80 /* ImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
@@ -60,8 +60,8 @@
 		2E66BC8E1A3BA0FC003BFF80 = {
 			isa = PBXGroup;
 			children = (
-				2E66BC991A3BA0FD003BFF80 /* DropResize */,
-				2E66BCAA1A3BA0FE003BFF80 /* DropResizeTests */,
+				2E66BC991A3BA0FD003BFF80 /* Dropi */,
+				2E66BCAA1A3BA0FE003BFF80 /* DropiTests */,
 				2E66BC981A3BA0FD003BFF80 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,13 +69,13 @@
 		2E66BC981A3BA0FD003BFF80 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2E66BC971A3BA0FD003BFF80 /* DropResize.app */,
-				2E66BCA71A3BA0FE003BFF80 /* DropResizeTests.xctest */,
+				2E66BC971A3BA0FD003BFF80 /* Dropi.app */,
+				2E66BCA71A3BA0FE003BFF80 /* DropiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2E66BC991A3BA0FD003BFF80 /* DropResize */ = {
+		2E66BC991A3BA0FD003BFF80 /* Dropi */ = {
 			isa = PBXGroup;
 			children = (
 				2E66BC9C1A3BA0FD003BFF80 /* AppDelegate.swift */,
@@ -85,7 +85,7 @@
 				2E66BCA01A3BA0FE003BFF80 /* MainMenu.xib */,
 				2E66BC9A1A3BA0FD003BFF80 /* Supporting Files */,
 			);
-			path = DropResize;
+			path = Dropi;
 			sourceTree = "<group>";
 		};
 		2E66BC9A1A3BA0FD003BFF80 /* Supporting Files */ = {
@@ -96,13 +96,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2E66BCAA1A3BA0FE003BFF80 /* DropResizeTests */ = {
+		2E66BCAA1A3BA0FE003BFF80 /* DropiTests */ = {
 			isa = PBXGroup;
 			children = (
 				2E66BCAD1A3BA0FE003BFF80 /* ImageResizerTests.swift */,
 				2E66BCAB1A3BA0FE003BFF80 /* Supporting Files */,
 			);
-			path = DropResizeTests;
+			path = DropiTests;
 			sourceTree = "<group>";
 		};
 		2E66BCAB1A3BA0FE003BFF80 /* Supporting Files */ = {
@@ -116,9 +116,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2E66BC961A3BA0FC003BFF80 /* DropResize */ = {
+		2E66BC961A3BA0FC003BFF80 /* Dropi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E66BCB11A3BA0FE003BFF80 /* Build configuration list for PBXNativeTarget "DropResize" */;
+			buildConfigurationList = 2E66BCB11A3BA0FE003BFF80 /* Build configuration list for PBXNativeTarget "Dropi" */;
 			buildPhases = (
 				2E66BC931A3BA0FC003BFF80 /* Sources */,
 				2E66BC941A3BA0FC003BFF80 /* Frameworks */,
@@ -128,14 +128,14 @@
 			);
 			dependencies = (
 			);
-			name = DropResize;
+			name = Dropi;
 			productName = ResizeImage;
-			productReference = 2E66BC971A3BA0FD003BFF80 /* DropResize.app */;
+			productReference = 2E66BC971A3BA0FD003BFF80 /* Dropi.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2E66BCA61A3BA0FE003BFF80 /* DropResizeTests */ = {
+		2E66BCA61A3BA0FE003BFF80 /* DropiTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E66BCB41A3BA0FE003BFF80 /* Build configuration list for PBXNativeTarget "DropResizeTests" */;
+			buildConfigurationList = 2E66BCB41A3BA0FE003BFF80 /* Build configuration list for PBXNativeTarget "DropiTests" */;
 			buildPhases = (
 				2E66BCA31A3BA0FE003BFF80 /* Sources */,
 				2E66BCA41A3BA0FE003BFF80 /* Frameworks */,
@@ -146,9 +146,9 @@
 			dependencies = (
 				2E66BCA91A3BA0FE003BFF80 /* PBXTargetDependency */,
 			);
-			name = DropResizeTests;
+			name = DropiTests;
 			productName = ResizeImageTests;
-			productReference = 2E66BCA71A3BA0FE003BFF80 /* DropResizeTests.xctest */;
+			productReference = 2E66BCA71A3BA0FE003BFF80 /* DropiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -170,7 +170,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2E66BC921A3BA0FC003BFF80 /* Build configuration list for PBXProject "DropResize" */;
+			buildConfigurationList = 2E66BC921A3BA0FC003BFF80 /* Build configuration list for PBXProject "Dropi" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -183,8 +183,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2E66BC961A3BA0FC003BFF80 /* DropResize */,
-				2E66BCA61A3BA0FE003BFF80 /* DropResizeTests */,
+				2E66BC961A3BA0FC003BFF80 /* Dropi */,
+				2E66BCA61A3BA0FE003BFF80 /* DropiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -233,7 +233,7 @@
 /* Begin PBXTargetDependency section */
 		2E66BCA91A3BA0FE003BFF80 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2E66BC961A3BA0FC003BFF80 /* DropResize */;
+			target = 2E66BC961A3BA0FC003BFF80 /* Dropi */;
 			targetProxy = 2E66BCA81A3BA0FE003BFF80 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -334,10 +334,10 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = DropResize/Info.plist;
+				INFOPLIST_FILE = Dropi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = DropResize;
+				PRODUCT_NAME = Dropi;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -349,10 +349,10 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = DropResize/Info.plist;
+				INFOPLIST_FILE = Dropi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = DropResize;
+				PRODUCT_NAME = Dropi;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -370,10 +370,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = DropResizeTests/Info.plist;
+				INFOPLIST_FILE = DropiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = DropResizeTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DropResize.app/Contents/MacOS/DropResize";
+				PRODUCT_NAME = DropiTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dropi.app/Contents/MacOS/Dropi";
 			};
 			name = Debug;
 		};
@@ -386,17 +386,17 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = DropResizeTests/Info.plist;
+				INFOPLIST_FILE = DropiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = DropResizeTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DropResize.app/Contents/MacOS/DropResize";
+				PRODUCT_NAME = DropiTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dropi.app/Contents/MacOS/Dropi";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2E66BC921A3BA0FC003BFF80 /* Build configuration list for PBXProject "DropResize" */ = {
+		2E66BC921A3BA0FC003BFF80 /* Build configuration list for PBXProject "Dropi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E66BCAF1A3BA0FE003BFF80 /* Debug */,
@@ -405,7 +405,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E66BCB11A3BA0FE003BFF80 /* Build configuration list for PBXNativeTarget "DropResize" */ = {
+		2E66BCB11A3BA0FE003BFF80 /* Build configuration list for PBXNativeTarget "Dropi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E66BCB21A3BA0FE003BFF80 /* Debug */,
@@ -414,7 +414,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E66BCB41A3BA0FE003BFF80 /* Build configuration list for PBXNativeTarget "DropResizeTests" */ = {
+		2E66BCB41A3BA0FE003BFF80 /* Build configuration list for PBXNativeTarget "DropiTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E66BCB51A3BA0FE003BFF80 /* Debug */,

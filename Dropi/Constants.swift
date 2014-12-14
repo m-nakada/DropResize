@@ -1,8 +1,8 @@
 //
 //  Constants.swift
-//  DropResize
+//  Dropi
 //
-//  Created by mitsuru on 12/14/14.
+//  Created by m-nakada on 12/14/14.
 //  Copyright (c) 2014 mna. All rights reserved.
 //
 
