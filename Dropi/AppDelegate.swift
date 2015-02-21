@@ -3,7 +3,7 @@
 //  Dropi
 //
 //  Created by m-nakada on 12/13/14.
-//  Copyright (c) 2014 mna. All rights reserved.
+//  Copyright (c) 2014-2015 mna. All rights reserved.
 //
 
 import Cocoa
@@ -38,15 +38,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   
   func applicationDockMenu(sender: NSApplication) -> NSMenu? {
     let selectedScaleTitle = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.SelectedScaleMenuTitle) as String
-    
     let menu: NSMenu = NSMenu(title: "Resize Image")
     
     // Add scale menu
     let sortedKeys = Array(self.scaleDict.keys).sorted(>)
-    
     for title in sortedKeys {
       let item = NSMenuItem(title: title, action:"scaleMenuAction:", keyEquivalent: "")
-      
       if title == selectedScaleTitle {
         item.state = NSOnState
       }
@@ -75,11 +72,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     else {
       let name = path.lastPathComponent.stringByDeletingPathExtension
       let ext = path.pathExtension
-      toName = "\(name) resize.\(ext)"
+      toName = "\(name)_org_.\(ext)"
     }
     
     let toPath = path.stringByDeletingLastPathComponent.stringByAppendingPathComponent(toName)
-    
     return NSURL(fileURLWithPath: toPath)!
   }
   
@@ -96,17 +92,47 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
   }
   
+  func copyToTemp(url: NSURL!) -> NSURL? {
+    let fm = NSFileManager.defaultManager()
+    if !fm.createDirectoryAtPath(Constants.Path.Temp, withIntermediateDirectories: false, attributes: nil, error: nil) {
+      return nil
+    }
+    
+    let filename = url.lastPathComponent
+    let path = Constants.Path.Temp.stringByAppendingPathComponent(filename!)
+    if let toURL = NSURL.fileURLWithPath(path) {
+      var error: NSErrorPointer = nil
+      if !fm.copyItemAtURL(url, toURL: toURL, error: error) {
+        println(error)
+      }
+      return toURL
+    }
+    
+    return nil
+  }
+  
   func resize(path: String) {
+    let orgURL = NSURL(fileURLWithPath: path)!
     let toURL = self.toURL(path)
     let ir = ImageResizer(inputScale: self.inputScale, inputAspectRatio: 1.0)
     
-    let url = NSURL(fileURLWithPath: path)!
-    if let image = ir.resize(url) {
-      let bitmap = NSBitmapImageRep(CIImage: image)
-      
-      bitmap
-        .representationUsingType(self.imageStorageType(path), properties: [:])?
-        .writeToURL(toURL, atomically: true)
+    if let tempURL = copyToTemp(orgURL) {
+      if let image = ir.resize(tempURL) {
+        let bitmap = NSBitmapImageRep(CIImage: image)
+        let fm = NSFileManager.defaultManager()
+        
+        var error: NSErrorPointer = nil
+        if !fm.moveItemAtURL(orgURL, toURL: toURL, error: error) {
+          fm.removeItemAtURL(tempURL, error: nil)
+          return
+        }
+        
+        bitmap
+          .representationUsingType(self.imageStorageType(path), properties: [:])?
+          .writeToURL(orgURL, atomically: true)
+        
+        fm.removeItemAtURL(tempURL, error: nil)
+      }
     }
   }
   
