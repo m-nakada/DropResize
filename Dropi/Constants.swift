@@ -15,7 +15,10 @@ struct Constants {
   // You can use Constants.Path.Documents
   struct Path {
     static let Documents = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-    static let Temp = NSTemporaryDirectory()
+    static let Temp = {
+      let bundleID = "com.mna.tools.Dropi"
+      return NSTemporaryDirectory().stringByAppendingPathComponent(bundleID)
+    }() as String
   }
 
   struct UserDefaultsKey {
