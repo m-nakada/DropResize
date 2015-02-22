@@ -92,18 +92,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
   }
   
-  func copyToTemp(url: NSURL!) -> NSURL? {
+  func prepareTempDirectory() -> Bool {
     let fm = NSFileManager.defaultManager()
-    if !fm.createDirectoryAtPath(Constants.Path.Temp, withIntermediateDirectories: false, attributes: nil, error: nil) {
-      return nil
+    if !fm.fileExistsAtPath(Constants.Path.Temp) {
+      if !fm.createDirectoryAtPath(Constants.Path.Temp, withIntermediateDirectories: false, attributes: nil, error: nil) {
+        println("Could not create \(Constants.Path.Temp)")
+        return false
+      }
     }
     
+    return true
+  }
+  
+  func copyToTemp(url: NSURL!) -> NSURL? {
     let filename = url.lastPathComponent
     let path = Constants.Path.Temp.stringByAppendingPathComponent(filename!)
     if let toURL = NSURL.fileURLWithPath(path) {
       var error: NSErrorPointer = nil
-      if !fm.copyItemAtURL(url, toURL: toURL, error: error) {
-        println(error)
+      if !NSFileManager.defaultManager().copyItemAtURL(url, toURL: toURL, error: error) {
+        println("Could not copy to temporary folder. \(error)")
       }
       return toURL
     }
@@ -112,6 +119,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
   
   func resize(path: String) {
+    if !prepareTempDirectory() {
+      return
+    }
+    
     let orgURL = NSURL(fileURLWithPath: path)!
     let toURL = self.toURL(path)
     let ir = ImageResizer(inputScale: self.inputScale, inputAspectRatio: 1.0)
@@ -123,6 +134,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         var error: NSErrorPointer = nil
         if !fm.moveItemAtURL(orgURL, toURL: toURL, error: error) {
+          println("Could not move original file. \(error)")
           fm.removeItemAtURL(tempURL, error: nil)
           return
         }
