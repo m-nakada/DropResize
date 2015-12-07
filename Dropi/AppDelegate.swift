@@ -14,162 +14,90 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   @IBOutlet weak var window: NSWindow!
   var inputScale: Float = 0.5
   let scaleDict: [String:Float] = ["80%":0.8, "70%":0.7, "60%":0.6, "50%":0.5, "40%":0.4]
-  var willOpenFilePath = String()
   
-  // MARK: NSApplicationDelegate
+  // MARK: - NSApplicationDelegate
   
   func applicationDidFinishLaunching(aNotification: NSNotification) {
-    // Insert code here to initialize your application
-    let defaults: NSDictionary = [Constants.UserDefaultsKey.SelectedScaleMenuTitle:"50%",
-                                  Constants.UserDefaultsKey.Overwrite:(false)]
+    let defaults: [String: AnyObject] = [UserDefaultsKey.SelectedScaleMenuTitle:"50%"]
     NSUserDefaults.standardUserDefaults().registerDefaults(defaults)
+    NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
   }
   
-  // When user drop a file to App icon, this method is called.
+  // When user drop a file to the App icon, this method is called.
   func application(theApplication: NSApplication, openFile filename: String) -> Bool {
-    self.resize(filename)
+    self.resize(path: filename)
     return true
   }
   
   func applicationWillTerminate(aNotification: NSNotification) {
-    // Insert code here to tear down your application
     NSUserDefaults.standardUserDefaults().synchronize()
   }
   
   func applicationDockMenu(sender: NSApplication) -> NSMenu? {
-    let selectedScaleTitle = NSUserDefaults.standardUserDefaults().objectForKey(Constants.UserDefaultsKey.SelectedScaleMenuTitle) as String
+    let defaults = NSUserDefaults.standardUserDefaults()
+    guard let selectedScaleTitle = defaults.objectForKey(UserDefaultsKey.SelectedScaleMenuTitle) as? String else { return nil }
     let menu: NSMenu = NSMenu(title: "Resize Image")
     
     // Add scale menu
-    let sortedKeys = Array(self.scaleDict.keys).sorted(>)
-    for title in sortedKeys {
+    for title in scaleDict.keys.sort(>) {
       let item = NSMenuItem(title: title, action:"scaleMenuAction:", keyEquivalent: "")
       if title == selectedScaleTitle {
         item.state = NSOnState
       }
-      
       menu.addItem(item)
     }
-    
-    // Add separator
-    menu.addItem(NSMenuItem.separatorItem())
-    
-    // Add settings menu
-    let overwriteMenuItem = NSMenuItem(title: Constants.DockMenu.Overwrite, action: "settingsMenuAction:", keyEquivalent: "")
-    overwriteMenuItem.state = NSUserDefaults.standardUserDefaults().boolForKey(Constants.UserDefaultsKey.Overwrite) ? NSOnState : NSOffState
-    menu.addItem(overwriteMenuItem)
     
     return menu
   }
   
-  // MARK: Image Function
+  // MARK: - Action
   
-  func toURL(path: NSString) -> NSURL {
-    var toName = ""
-    if NSUserDefaults.standardUserDefaults().boolForKey(Constants.UserDefaultsKey.Overwrite) {
-      toName = path.lastPathComponent
-    }
-    else {
-      let name = path.lastPathComponent.stringByDeletingPathExtension
-      let ext = path.pathExtension
-      toName = "\(name)_org_.\(ext)"
-    }
-    
-    let toPath = path.stringByDeletingLastPathComponent.stringByAppendingPathComponent(toName)
-    return NSURL(fileURLWithPath: toPath)!
+  @IBAction func scaleMenuAction(sender: NSMenuItem) {
+    self.inputScale = self.scaleDict[sender.title]!
+    NSUserDefaults.standardUserDefaults().setObject(sender.title, forKey: UserDefaultsKey.SelectedScaleMenuTitle)
+    NSUserDefaults.standardUserDefaults().synchronize()
   }
   
-  func imageStorageType(path: NSString) -> NSBitmapImageFileType {
-    switch (path.pathExtension.lowercaseString) {
-    case "png":
-      return .NSPNGFileType
-    case "jpg", "jpeg":
-      return .NSJPEGFileType
-    case "tif", "tiff":
-      return .NSTIFFFileType
-    default:
-      return .NSPNGFileType
+  // MARK: - Image Function
+  
+  func resize(path path: String) {
+    let url = NSURL(fileURLWithPath: path)
+    let ir = ImageResizer(inputScale: self.inputScale, url: url)
+    
+    if case let (image?, fileType?) = ir.resize() {
+      NSBitmapImageRep(CIImage: image)
+        .representationUsingType(fileType, properties: [:])?
+        .writeToURL(url, atomically: true)
+      postUserNotification(url)
+    } else {
+      print("Could not resize image: \(url)")
     }
   }
   
-  func prepareTempDirectory() -> Bool {
-    let fm = NSFileManager.defaultManager()
-    if !fm.fileExistsAtPath(Constants.Path.Temp) {
-      if !fm.createDirectoryAtPath(Constants.Path.Temp, withIntermediateDirectories: false, attributes: nil, error: nil) {
-        println("Could not create \(Constants.Path.Temp)")
-        return false
-      }
-    }
-    
+  // MARK: - User Notification
+  
+  func postUserNotification(url: NSURL) {
+    let notif = NSUserNotification()
+    notif.title             = NSLocalizedString("Resized", comment: "")
+    notif.informativeText   = url.lastPathComponent
+    notif.soundName         = NSUserNotificationDefaultSoundName;
+    notif.userInfo          = ["url":url.absoluteString]
+    NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notif)
+  }
+  
+}
+
+// MARK: - NSUserNotificationCenterDelegate
+
+extension AppDelegate: NSUserNotificationCenterDelegate {
+  func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
     return true
   }
   
-  func copyToTemp(url: NSURL!) -> NSURL? {
-    let filename = url.lastPathComponent
-    let path = Constants.Path.Temp.stringByAppendingPathComponent(filename!)
-    if let toURL = NSURL.fileURLWithPath(path) {
-      var error: NSErrorPointer = nil
-      if !NSFileManager.defaultManager().copyItemAtURL(url, toURL: toURL, error: error) {
-        println("Could not copy to temporary folder. \(error)")
-      }
-      return toURL
-    }
-    
-    return nil
+  func userNotificationCenter(center: NSUserNotificationCenter, didActivateNotification notification: NSUserNotification) {
+    guard let userInfo = notification.userInfo,
+              path = userInfo["url"] as? String,
+              url = NSURL(string: path) else { return }
+    NSWorkspace.sharedWorkspace().openURL(url)
   }
-  
-  func resize(path: String) {
-    if !prepareTempDirectory() {
-      return
-    }
-    
-    let orgURL = NSURL(fileURLWithPath: path)!
-    let toURL = self.toURL(path)
-    let ir = ImageResizer(inputScale: self.inputScale, inputAspectRatio: 1.0)
-    
-    if let tempURL = copyToTemp(orgURL) {
-      if let image = ir.resize(tempURL) {
-        let bitmap = NSBitmapImageRep(CIImage: image)
-        let fm = NSFileManager.defaultManager()
-        
-        var error: NSErrorPointer = nil
-        if !fm.moveItemAtURL(orgURL, toURL: toURL, error: error) {
-          println("Could not move original file. \(error)")
-          fm.removeItemAtURL(tempURL, error: nil)
-          return
-        }
-        
-        bitmap
-          .representationUsingType(self.imageStorageType(path), properties: [:])?
-          .writeToURL(orgURL, atomically: true)
-        
-        fm.removeItemAtURL(tempURL, error: nil)
-      }
-    }
-  }
-  
-  // MARK: Action
-  
-  @IBAction func scaleMenuAction(sender: AnyObject) {
-    let menu = sender as NSMenuItem
-    self.inputScale = self.scaleDict[menu.title]!
-    
-    NSUserDefaults.standardUserDefaults().setObject(menu.title, forKey: Constants.UserDefaultsKey.SelectedScaleMenuTitle)
-    NSUserDefaults.standardUserDefaults().synchronize()
-  }
-  
-  @IBAction func settingsMenuAction(sender: AnyObject) {
-    let menu = sender as NSMenuItem
-    
-    switch (menu.title) {
-      case Constants.DockMenu.Overwrite:
-        var flag = NSUserDefaults.standardUserDefaults().boolForKey(Constants.UserDefaultsKey.Overwrite)
-        NSUserDefaults.standardUserDefaults().setBool(!flag, forKey: Constants.UserDefaultsKey.Overwrite)
-      default:
-       break // do nothing
-    }
-    
-    NSUserDefaults.standardUserDefaults().synchronize()
-  }
-  
 }

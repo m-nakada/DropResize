@@ -8,27 +8,43 @@
 
 import Cocoa
 
-class ImageResizer: NSObject {
-  var inputScale: Float = 0.5
-  var inputAspectRatio: Float = 1.0
-  
-  init(inputScale: Float, inputAspectRatio: Float) {
-    super.init()
-    self.inputScale = inputScale
-    self.inputAspectRatio = inputAspectRatio
+struct ImageResizer {
+  var inputScale: Float
+  var inputAspectRatio: Float
+  var url: NSURL
+  var fileType: NSBitmapImageFileType? {
+    guard let pathExtension = url.pathExtension else { return nil }
+    switch (pathExtension.lowercaseString) {
+    case "png":
+      return .NSPNGFileType
+    case "jpg", "jpeg":
+      return .NSJPEGFileType
+    case "tif", "tiff":
+      return .NSTIFFFileType
+    default:
+      return .NSPNGFileType
+    }
   }
   
-  func resize(url: NSURL) -> CIImage? {
-    let image: CIImage = CIImage(contentsOfURL: url)
+  init(inputScale: Float = 0.5, inputAspectRatio: Float = 1.0, url: NSURL) {
+    self.inputScale = inputScale
+    self.inputAspectRatio = inputAspectRatio
+    self.url = url
+  }
+  
+  func resize() -> (CIImage?, NSBitmapImageFileType?)  {
+    guard let image = CIImage(contentsOfURL: url) else { return (nil, nil) }
     
     // Create resize filter
-    let filter = CIFilter(name: "CILanczosScaleTransform")
+    guard let filter = CIFilter(name: "CILanczosScaleTransform") else { return (nil, nil) }
     filter.setValue(image, forKey: "inputImage")
     filter.setValue(self.inputScale, forKey: "inputScale")
     filter.setValue(self.inputAspectRatio, forKey: "inputAspectRatio")
     
     // Get output image
-    let outputImage = filter.valueForKey("outputImage") as CIImage
-    return outputImage
+    guard let outputImage = filter.valueForKey("outputImage") as? CIImage else { return (nil, nil) }
+    guard let fileType = fileType else { return (outputImage, nil) }
+    return (outputImage, fileType)
   }
+  
 }
